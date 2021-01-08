@@ -108,9 +108,11 @@ RUN $CONDA_DIR/bin/python -m pip install mplleaflet \
 # pandas.read_hdf
 #
 ###########
+RUN conda install --quiet --yes \
+	'jupyter'
 RUN $CONDA_DIR/bin/python -m pip install --upgrade tables
 
 # clean up pip cache
 RUN rm -rf /root/.cache/pip/*
-COPY requirements.txt /requirements.txt
-RUN $CONDA_DIR/bin/python -m pip install -r requirements.txt  #Instalação dos pacotes específicos.
+#COPY requirements.txt /requirements.txt
+#RUN $CONDA_DIR/bin/python -m pip install -r /requirements.txt  #Instalação dos pacotes específicos.

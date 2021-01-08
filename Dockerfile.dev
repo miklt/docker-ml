@@ -1,0 +1,6 @@
+FROM michelet/docker-ml:v1
+ENV ACCEPT_INTEL_PYTHON_EULA=yes
+WORKDIR /opt/notebooks
+ADD requirements.txt /app/
+RUN pip install --upgrade pip \ 
+    && pip install -r /app/requirements.txt

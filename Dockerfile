@@ -13,12 +13,11 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
 # --- Install gcc/g++
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc-7 g++-7 && \
+    apt-get install -y --no-install-recommends gcc g++ && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# --- Update alternatives
-RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+
 
 # Install OpenJDK-8
 RUN apt-get update && \

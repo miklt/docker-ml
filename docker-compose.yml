@@ -1,11 +1,13 @@
 version: "3.8"
 services:
-    anaconda:
-        image: miklt/ml-docker
+    conda-with-requirements:        
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
         ports:
             - "8888:8888"
         volumes:
-            - "./dados:/opt/notebooks"
+            - "./notebooks:/opt/notebooks"
+            - "./data:/opt/notebooks/data"
         entrypoint: /bin/bash
-
-        command: -c "/opt/conda/bin/conda install jupyter -y --quiet && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
+        command: -c "/opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root" 

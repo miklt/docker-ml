@@ -40,7 +40,7 @@ RUN $CONDA_DIR/bin/python -m pip install -f http://h2o-release.s3.amazonaws.com/
 
 # --- Conda xgboost, lightgbm, catboost, h2o, gensim, mlxtend
 RUN conda install --quiet --yes \
-    'boost' \
+    'boost' \	 
     'lightgbm' \
     'xgboost' \
     'catboost' \

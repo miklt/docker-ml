@@ -1,6 +1,8 @@
 FROM michelet/docker-ml:v1
 ENV ACCEPT_INTEL_PYTHON_EULA=yes
 WORKDIR /opt/notebooks
+RUN conda install --quiet --yes \
+    'python-graphviz'
 ADD requirements.txt /app/
 RUN pip install --upgrade pip \ 
     && pip install -r /app/requirements.txt

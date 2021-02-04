@@ -3,3 +3,4 @@ pygam
 dmba
 imbalanced-learn
 prince
+pydotplus
